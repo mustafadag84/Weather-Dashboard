@@ -1,11 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
     <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+    <nav class="navbar navbar-dark bg-dark text-center">
+        <h1 class="text-light m-auto">Weather Dashboard</h1>
+    </nav>
+    <div class="container">
+
+
+        <h1>Search for a City:</h1>
+
+
+        <form id="movie-form">
+
+            <input type="text" id="movie-input">
+
+            <!-- Button triggers new movie to be added -->
+            <input id="add-movie" type="submit" value="search">
+        </form>
+
+        <!-- Rendered Buttons will get Dumped Here  -->
+        <div id="buttons-view"></div>
+
+
+        <!-- Movies will Get Dumped Here -->
+        <div id="movies-view"></div>
+
+        <!-- Retrieved data will be dumped here -->
+        <div class="city"></div>
+        <div class="tempF"></div>
+        <div class="humidity"></div>
+        <div class="wind"></div>
+        <div class="UV Index"></div>
+
+
+
+
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>

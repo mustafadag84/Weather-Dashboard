@@ -1,0 +1,9 @@
+.container{
+    background-color: aqua;
+}
+button,
+    div,
+    form,
+    input {
+      margin: 10px;
+    }
