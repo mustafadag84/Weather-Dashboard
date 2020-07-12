@@ -1,9 +1,16 @@
 .container{
-    background-color: aqua;
+  background-color: aqua;
 }
 button,
-    div,
-    form,
-    input {
-      margin: 10px;
-    }
+div,
+form,
+input {
+    margin: 10px;
+  }
+
+input,
+button{
+background-color:rgb(25, 105, 151);
+color: white;
+}
+
