@@ -24,7 +24,7 @@ function displayCityInfo(cityName) {
     city = cityName;
 
   }
-  
+
   console.log('CITY: ' + city)
   var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
 
@@ -32,7 +32,7 @@ function displayCityInfo(cityName) {
     url: queryURL,
     method: "GET"
   }).then((response) => {
-   
+
 
     // Transfer content to HTML
     $(".city").html("<h1>" + response.name + " Weather Details" + "</h1>");
@@ -41,7 +41,7 @@ function displayCityInfo(cityName) {
 
     // Convert the temp to fahrenheit
     var tempF = (response.main.temp - 273.15) * 1.80 + 32;
-    
+
     // add temp content to html
     $(".tempF").text("Temperature (F) " + tempF.toFixed(2));
 
@@ -50,11 +50,11 @@ function displayCityInfo(cityName) {
     var url = "http://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + response.coord.lat + "&lon=" + response.coord.lon
     // ajax call to this url and in the response in comming a value this will be uv then show in the screen
     $.ajax({
-      
+
       url: url,
       method: "GET"
     }).then(function (data) {
-     
+
       $(".UVIndex").text("UV Index: " + data.value);
     })
 
@@ -65,7 +65,7 @@ function displayCityInfo(cityName) {
       url: url,
       method: "GET"
     }).then(function (data) {
-      
+
       var forecast_div = $("#fiveDayForecast");
 
       $("#5day_div").empty();
@@ -80,13 +80,12 @@ function displayCityInfo(cityName) {
         var date_div = $("<div>");
         date_div.addClass("dt")
         var dt = data.list[i].dt_txt.split(" ");
-        // date_div.html(data.list[i].dt_txt);
         date_div.html(dt[0]);
         //append it to the day div
         day_div.append(date_div)
 
 
-        
+
         var iconCode = data.list[i].weather[0].icon
 
         var iconLocation = "http://openweathermap.org/img/w/" + iconCode + ".png";
@@ -113,7 +112,7 @@ function displayCityInfo(cityName) {
 
 
         $("#5day_div").append(day_div);
-        
+
 
       }
 
