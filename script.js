@@ -10,7 +10,7 @@ if (citiesStored) {
 }
 
 var APIKey = "166a433c57516f51dfab1f7edaed8413";
-// Function for dumping the JSON content for each button into the div
+
 
 
 function displayCityInfo(cityName) {
