@@ -2,7 +2,7 @@
 var cities = [];
 
 var citiesStored = localStorage.getItem("weather") || "[]";
-console.log(typeof citiesStored, "citiesStored")
+
 
 if (citiesStored) {
   cities = JSON.parse(citiesStored)
@@ -24,9 +24,7 @@ function displayCityInfo(cityName) {
     city = cityName;
 
   }
-  //city = $(this).attr("data-name");
-
-  // var city  = $("#add-city").val();
+  
   console.log('CITY: ' + city)
   var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
 
@@ -34,9 +32,7 @@ function displayCityInfo(cityName) {
     url: queryURL,
     method: "GET"
   }).then((response) => {
-    console.log("back");
-    console.log(response);
-    // $("#cities-view").text(JSON.stringify(response));
+   
 
     // Transfer content to HTML
     $(".city").html("<h1>" + response.name + " Weather Details" + "</h1>");
@@ -45,9 +41,8 @@ function displayCityInfo(cityName) {
 
     // Convert the temp to fahrenheit
     var tempF = (response.main.temp - 273.15) * 1.80 + 32;
-    console.log(tempF, 'tempf')
+    
     // add temp content to html
-
     $(".tempF").text("Temperature (F) " + tempF.toFixed(2));
 
 
@@ -55,10 +50,11 @@ function displayCityInfo(cityName) {
     var url = "http://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + response.coord.lat + "&lon=" + response.coord.lon
     // ajax call to this url and in the response in comming a value this will be uv then show in the screen
     $.ajax({
+      
       url: url,
       method: "GET"
     }).then(function (data) {
-      console.log('UVI', data)
+     
       $(".UVIndex").text("UV Index: " + data.value);
     })
 
@@ -69,9 +65,7 @@ function displayCityInfo(cityName) {
       url: url,
       method: "GET"
     }).then(function (data) {
-      console.log("five day data");
-      console.log(data)
-
+      
       var forecast_div = $("#fiveDayForecast");
 
       $("#5day_div").empty();
@@ -80,7 +74,7 @@ function displayCityInfo(cityName) {
 
         //create a div that will hold a whole day's info
         var day_div = $("<div>");
-        day_div.addClass("col-12 col-md-4 col-lg-2")
+        day_div.addClass("col-12 col-md-4 col-lg-2").addClass("results")
 
         //make the date div
         var date_div = $("<div>");
@@ -90,6 +84,15 @@ function displayCityInfo(cityName) {
         date_div.html(dt[0]);
         //append it to the day div
         day_div.append(date_div)
+
+
+        
+        var iconCode = data.list[i].weather[0].icon
+
+        var iconLocation = "http://openweathermap.org/img/w/" + iconCode + ".png";
+        day_div.append($('<img>').attr("src", iconLocation));
+
+
 
         //created a div for temprature
         var temp_div = $("<div>");
@@ -106,13 +109,11 @@ function displayCityInfo(cityName) {
         //append it to the day
         day_div.append(humidity_div);
 
-        console.log(data.list[i].dt_txt);
-        console.log(data.list[i].main.temp);
-        console.log(data.list[i].main.humidity);
+
+
 
         $("#5day_div").append(day_div);
-        //$("#day_div1").append(day_div);
-
+        
 
       }
 
