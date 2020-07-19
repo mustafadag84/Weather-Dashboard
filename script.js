@@ -47,7 +47,7 @@ function displayCityInfo(cityName) {
 
 
 
-    var url = "http://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + response.coord.lat + "&lon=" + response.coord.lon;
+    var url = "https://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + response.coord.lat + "&lon=" + response.coord.lon;
     // ajax call to this url and in the response in comming a value this will be uv then show in the screen
     $.ajax({
 
@@ -60,7 +60,7 @@ function displayCityInfo(cityName) {
 
 
     // this is to get 5 days farecast
-    var url = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + APIKey + "&units=imperial";
+    var url = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + APIKey + "&units=imperial";
     $.ajax({
       url: url,
       method: "GET"
@@ -88,7 +88,7 @@ function displayCityInfo(cityName) {
 
         var iconCode = data.list[i].weather[0].icon
 
-        var iconLocation = "http://openweathermap.org/img/w/" + iconCode + ".png";
+        var iconLocation = "https://openweathermap.org/img/w/" + iconCode + ".png";
         day_div.append($('<img>').attr("src", iconLocation));
 
 
