@@ -42,12 +42,12 @@ function displayCityInfo(cityName) {
     // Convert the temp to fahrenheit
     var tempF = (response.main.temp - 273.15) * 1.80 + 32;
 
-    // add temp content to html
+    // add temp content to html 
     $(".tempF").text("Temperature (F) " + tempF.toFixed(2));
 
 
 
-    var url = "http://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + response.coord.lat + "&lon=" + response.coord.lon
+    var url = "http://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + response.coord.lat + "&lon=" + response.coord.lon;
     // ajax call to this url and in the response in comming a value this will be uv then show in the screen
     $.ajax({
 
