@@ -14,4 +14,7 @@ jQuery,
 Open Weather API.
 There are a some of extra things I'd like to fix here once I get a chance.
 
+## Webpage Screenshots 
+![homepage-screenshot](assets/home-screenshot.png)
+
 
