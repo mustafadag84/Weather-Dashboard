@@ -15,7 +15,7 @@ Open Weather API.
 There are a some of extra things I'd like to fix here once I get a chance.
 https://mustafadag84.github.io/Weather-Dashboard/
 
-## Webpage Screenshots 
+## Webpage Screenshot
 ![screenshot png](https://user-images.githubusercontent.com/63365781/87868791-d0326700-c967-11ea-917b-d7825fd49b9d.png)
 
 
